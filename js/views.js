@@ -795,11 +795,10 @@ window.W2E = window.W2E || {};
       s.dishes.reduce(function (a, x) { return a.concat(x.ingredients || []); }, []),
       s.inventory.map(function (x) { return x.name; })
     ));
-    const shopKnown = unique(s.dishes.filter(function (x) { return x.source === 'takeout' && x.takeoutShop; })
-      .map(function (x) { return x.takeoutShop; }));
     ui.bindChips(scope.querySelector('.rf-ingredients'), { values: rules.forbidIngredients, suggestions: ingKnown, placeholder: '如：海鲜' });
     ui.bindChips(scope.querySelector('.rf-tags'), { values: rules.forbidTags, suggestions: C.TAG_SUGGESTIONS });
-    ui.bindChips(scope.querySelector('.rf-shops'), { values: rules.forbidShops, suggestions: shopKnown, placeholder: '如：杨国福麻辣烫' });
+    // 忌口店铺不提供建议词，只支持手动输入
+    ui.bindChips(scope.querySelector('.rf-shops'), { values: rules.forbidShops, suggestions: [], placeholder: '如：杨国福麻辣烫' });
     ui.bindChips(scope.querySelector('.rf-prefer'), { values: rules.preferTags, suggestions: C.TAG_SUGGESTIONS });
     bindDishChips(scope.querySelector('.rf-dishes'), rules.forbidDishes);
     scope.querySelector('.rf-spicy').onchange = function (e) { rules.maxSpicy = e.target.value === '' ? null : Number(e.target.value); };

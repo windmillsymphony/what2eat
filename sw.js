@@ -5,7 +5,7 @@
  * ============================================================ */
 'use strict';
 
-const CACHE = 'w2e-v3';
+const CACHE = 'w2e-v4';
 
 const ASSETS = [
   './', './index.html', './css/style.css', './manifest.webmanifest',
@@ -39,8 +39,10 @@ self.addEventListener('fetch', function (e) {
   if (url.origin !== location.origin) return; // 不碰外部资源
 
   // 网络优先：在线时总是拿最新文件并更新缓存；离线时回退到缓存
+  // cache:'no-store' 强制穿透浏览器 HTTP 缓存（GitHub Pages 静态文件带
+  // 10 分钟缓存头，否则部署后短时间内刷新还是旧文件）
   e.respondWith(
-    fetch(e.request)
+    fetch(e.request, { cache: 'no-store' })
       .then(function (res) {
         if (res && res.ok) {
           const copy = res.clone();
