@@ -515,6 +515,7 @@ window.W2E = window.W2E || {};
       e.preventDefault();
       const name = c.querySelector('#f-name').value.trim();
       if (!name) { ui.toast('请填写菜名'); return; }
+      f.name = name;
       if (f.source === 'takeout') {
         f.takeoutShop = c.querySelector('#f-shop').value.trim();
         if (!f.takeoutShop) { ui.toast('外卖菜品请填写店名'); return; }

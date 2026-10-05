@@ -118,8 +118,8 @@ window.W2E = window.W2E || {};
         }).join('') + '</div>';
       }
       if (suggestions.length) {
-        html += '<div class="chips-wrap">' + suggestions.map(function (s) {
-          return '<button class="chip ' + (values.indexOf(s) >= 0 ? 'on' : '') + '" data-sug="' + esc(s) + '">' + esc(s) + '</button>';
+        html += '<div class="sug-hint">点选添加：</div><div class="chips-wrap">' + suggestions.map(function (s) {
+          return '<button class="chip sug ' + (values.indexOf(s) >= 0 ? 'on' : '') + '" data-sug="' + esc(s) + '">＋' + esc(s) + '</button>';
         }).join('') + '</div>';
       }
       html += '<div class="chip-add">' +

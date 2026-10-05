@@ -5,7 +5,7 @@
  * ============================================================ */
 'use strict';
 
-const CACHE = 'w2e-v2';
+const CACHE = 'w2e-v3';
 
 const ASSETS = [
   './', './index.html', './css/style.css', './manifest.webmanifest',
