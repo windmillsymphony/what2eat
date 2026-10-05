@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#e8590c">
+<title>今天吃什么</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍜</text></svg>">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="今天吃什么">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+  <header id="appbar">
+    <button id="backBtn" class="icon-btn" hidden aria-label="返回">←</button>
+    <h1 id="pageTitle">今天吃什么</h1>
+  </header>
+  <main id="view"></main>
+  <nav id="tabbar">
+    <a href="#/home" data-tab="home"><span class="tab-icon">🎲</span><span>推荐</span></a>
+    <a href="#/dishes" data-tab="dishes"><span class="tab-icon">🍜</span><span>菜品</span></a>
+    <a href="#/inventory" data-tab="inventory"><span class="tab-icon">🧺</span><span>库存</span></a>
+    <a href="#/periods" data-tab="periods"><span class="tab-icon">🌡️</span><span>时期</span></a>
+    <a href="#/settings" data-tab="settings"><span class="tab-icon">⚙️</span><span>我的</span></a>
+  </nav>
+</div>
+<div id="modal-root"></div>
+<div id="toast-root"></div>
+<script src="js/storage.js"></script>
+<script src="js/data.js"></script>
+<script src="js/recommend.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/views.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
